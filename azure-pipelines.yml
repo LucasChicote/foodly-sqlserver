@@ -18,39 +18,3 @@ stages:
               tags: |
                 $(Build.BuildId)
                 latest
-  - stage: Deploy
-    displayName: "Deploy no ACI"
-    dependsOn: Build
-    jobs:
-      - job: DeployACI
-        steps:
-          - task: AzureCLI@2
-            displayName: "Criar container no ACI"
-            inputs:
-              azureSubscription: "Azure for Students (09c004c8-b4c2-42ce-bbc2-c91c252995eb)"
-              scriptType:        "bash"
-              scriptLocation:    "inlineScript"
-              inlineScript: |
-                az container delete \
-                  --resource-group rg-foodly-sprint4 \
-                  --name javamssqlrm559366 \
-                  --yes
-                az container create \
-                  --resource-group rg-foodly-sprint4 \
-                  --name javamssqlrm559366 \
-                  --image javamssqlrm559366.azurecr.io/javasql:latest \
-                  --cpu 2 \
-                  --memory 2 \
-                  --os-type Linux \
-                  --registry-login-server javamssqlrm559366.azurecr.io \
-                  --registry-username javamssqlrm559366 \
-                  --registry-password "$(ACR_PASSWORD)" \
-                  --dns-name-label javamssqlrm559366 \
-                  --restart-policy Always \
-                  --ports 8080 \
-                  --environment-variables \
-                    DB_USER="$(DB_USER)" \
-                    DB_PASSWORD="$(DB_PASSWORD)" \
-                    DB_HOST="sql-server-foodly-rm559366-brazilsouth.database.windows.net" \
-                    DB_NAME="db-foodly" \
-                    DB_PORT="1433"
