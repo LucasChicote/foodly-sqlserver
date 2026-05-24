@@ -2,12 +2,12 @@ FROM eclipse-temurin:17-jdk-jammy AS build
 
 WORKDIR /app
 
+# Copia o wrapper e a pasta gradle mantendo a estrutura exata
 COPY gradlew .
 COPY gradle/ gradle/
 
-RUN apt-get update && apt-get install -y dos2unix && \
-    dos2unix gradlew && \
-    chmod +x gradlew
+# Removemos a linha do apt-get e dos2unix que quebrou!
+RUN chmod +x gradlew
 
 COPY build.gradle .
 COPY settings.gradle .
