@@ -7,7 +7,7 @@
 ## Integrantes:
 Lucas Aurelio de Brito Chicote → RM 559366
 Lucas Gomes de Araujo Lopes → RM 559607
-Henrique Marques Sladkevicius → RM 560698
+Henrique Marques Sladkevicius → RM 560698.
 
 ---
 
