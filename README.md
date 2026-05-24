@@ -367,6 +367,52 @@ stages:
 ```
 
 ---
+## Antes de realizar o CRUD executar esse comando no shell do Portal da Azure
+
+```bash
+az acr repository show-tags --name javamssqlrm559366 --repository javasql --orderby time_desc --top 3
+```
+
+**Saída**
+
+```
+[
+  "latest",
+  "59",
+  "58"
+]
+```
+**Pegar o primeiro numero que aparecer, nesse caso no exemplo seria <59> e substituir no próximo código**
+
+## Recria o container com a tag :59
+
+```bash
+az container delete \
+  --resource-group rg-foodly-sprint4 \
+  --name javamssqlrm559366 \
+  --yes || true
+
+az container create \
+  --resource-group rg-foodly-sprint4 \
+  --name javamssqlrm559366 \
+  --image javamssqlrm559366.azurecr.io/javasql:59 \ <-- # INSIRE AQUI A TAG NOVA QUANDO FOR EXECUTAR O COMANDO DE ACHAR AS TAGS  
+  --cpu 1 \
+  --memory 1 \
+  --os-type Linux \
+  --registry-login-server javamssqlrm559366.azurecr.io \
+  --registry-username javamssqlrm559366 \
+  --registry-password "A88FAc800xLYJCELdWi8aQRg4LVoO5GzbmT7YwziomRvshjUyUKwJQQJ99CEACZoyfiEqg7NAAACAZCRACwL" \
+  --dns-name-label javamssqlrm559366 \
+  --restart-policy Always \
+  --ports 8080 \
+  --environment-variables \
+    DB_HOST="sql-server-foodly-rm559366.database.windows.net" \
+    DB_NAME="db-foodly" \
+    DB_USER="user-foodlysql" \
+    DB_PASSWORD="FoodlyDelivery@2026" \
+    DB_PORT="1433" \
+    PORT="8080"
+```
 
 ## URLs da Aplicação em Nuvem
 
