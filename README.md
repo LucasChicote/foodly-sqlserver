@@ -395,7 +395,7 @@ az container delete \
 az container create \
   --resource-group rg-foodly-sprint4 \
   --name javamssqlrm559366 \
-  --image javamssqlrm559366.azurecr.io/javasql:59 \ <-- # INSIRE AQUI A TAG NOVA QUANDO FOR EXECUTAR O COMANDO DE ACHAR AS TAGS  
+  --image javamssqlrm559366.azurecr.io/javasql:59 \ # <-- INSIRE AQUI A TAG NOVA QUANDO FOR EXECUTAR O COMANDO DE ACHAR AS TAGS  
   --cpu 1 \
   --memory 1 \
   --os-type Linux \
