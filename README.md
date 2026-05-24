@@ -504,4 +504,7 @@ SELECT * FROM categorias;
 SELECT * FROM restaurantes;
 SELECT * FROM produtos;
 ```
-## Alterando readme no git
+
+## Vídeo demonstrativo da Sprint completo
+
+[![Vídeo de Demonstração](https://img.youtube.com/vi/H7O6foFZDHo/hqdefault.jpg)](https://youtu.be/H7O6foFZDHo?si=1heRqXsrHhU3KGGP)
