@@ -16,6 +16,14 @@ Henrique Marques Sladkevicius → RM 560698.
 https://dev.azure.com/GroupFoodly/Foodly%20Pipelines-CI-CD
 ```
 
+## Arquitetura da Solução
+---
+
+<img src="Arquitetura-Pipeline-Foodly.png" width="100%" alt="Arquitetura da Solução Foodly-Pipeline" />
+<img src="Foodly-Arquitetura-CICD-Page-1 (1).png" width="100%" alt="Arquitetura da Solução Foodly-Pipeline" />
+
+---
+
 ---
 
 ## Estrutura do Repositório
